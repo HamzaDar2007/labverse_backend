@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProjectTechnologyService } from '../project_technology.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { ProjectTechnology } from '../../technologies/entities/project_technology.entity';
+import { ProjectTechnology } from '../../../technologies/entities/project_technology.entity';
 import { Project } from '../../project/entities/project.entity';
-import { Technology } from '../../technologies/entities/technology.entity';
+import { Technology } from '../../../technologies/entities/technology.entity';
 import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 
