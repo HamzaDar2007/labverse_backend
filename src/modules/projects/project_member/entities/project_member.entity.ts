@@ -3,7 +3,7 @@ import {
   ManyToOne, JoinColumn
 } from 'typeorm';
 import { Project } from '../../project/entities/project.entity';
-import { EmployeeProfile } from '../../employees/entities/employee_profile.entity';
+import { EmployeeProfile } from '../../../employees/entities/employee_profile.entity';
 
 @Entity('project_members')
 export class ProjectMember {

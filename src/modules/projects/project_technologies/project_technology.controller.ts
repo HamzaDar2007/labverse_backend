@@ -11,8 +11,8 @@ import {
 } from '@nestjs/common';
 import { ProjectTechnologyService } from './project_technology.service';
 import { AssignProjectTechnologyDto } from './dto/assign-project-technology.dto';
-import { RolesGuard } from '../../common/guards/roles.guard';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../../../common/guards/roles.guard';
+import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard, RolesGuard)
 

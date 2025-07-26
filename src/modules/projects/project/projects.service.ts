@@ -4,11 +4,11 @@ import { Repository } from 'typeorm';
 import { Project } from './entities/project.entity';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
-import { EmployeeProfile } from '../employees/entities/employee_profile.entity';
+import { EmployeeProfile } from '../../employees/entities/employee_profile.entity';
 import { ProjectMember } from '../project_member/entities/project_member.entity';
 import { AssignMemberDto } from '../project_member/dto/assign-member.dto';
-import { Technology } from '../technologies/entities/technology.entity';
-import { ProjectTechnology } from '../technologies/entities/project_technology.entity';
+import { Technology } from '../../technologies/entities/technology.entity';
+import { ProjectTechnology } from '../../technologies/entities/project_technology.entity';
 
 @Injectable()
 export class ProjectsService {

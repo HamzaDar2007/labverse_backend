@@ -6,8 +6,8 @@ import { User } from '../src/modules/users/entities/user.entity';
 import { Skill } from '../src/modules/skills/entities/skill.entity';
 import { EmployeeProfile } from '../src/modules/employees/entities/employee_profile.entity';
 import { Technology } from '../src/modules/technologies/entities/technology.entity';
-import { Project } from '../src/modules/project/entities/project.entity';
-import { ProjectMember } from '../src/modules/project_member/entities/project_member.entity';
+import { Project } from '../src/modules/projects/project/entities/project.entity';
+import { ProjectMember } from '../src/modules/projects/project_member/entities/project_member.entity';
 import { ProjectTechnology } from '../src/modules/technologies/entities/project_technology.entity';
 import * as bcrypt from 'bcryptjs';
 

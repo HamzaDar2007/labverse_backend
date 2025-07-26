@@ -1,7 +1,7 @@
 import {
   Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn
 } from 'typeorm';
-import { Project } from '../../project/entities/project.entity';
+import { Project } from '../../projects/project/entities/project.entity';
 import { Technology } from '../../technologies/entities/technology.entity';
 
 @Entity('project_technologies')

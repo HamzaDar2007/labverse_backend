@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { ProjectTechnology } from './../technologies/entities/project_technology.entity';
+import { ProjectTechnology } from './../../technologies/entities/project_technology.entity';
 import { AssignProjectTechnologyDto } from './dto/assign-project-technology.dto';
 import { Project } from '../project/entities/project.entity';
-import { Technology } from '../technologies/entities/technology.entity';
+import { Technology } from '../../technologies/entities/technology.entity';
 @Injectable()
 export class ProjectTechnologyService {
   constructor(

@@ -3,7 +3,7 @@ import {
   CreateDateColumn, UpdateDateColumn, OneToMany
 } from 'typeorm';
 import { ProjectMember } from './../../project_member/entities/project_member.entity';
-import { ProjectTechnology } from '../../technologies/entities/project_technology.entity';
+import { ProjectTechnology } from '../../../technologies/entities/project_technology.entity';
 
 @Entity('projects')
 export class Project {

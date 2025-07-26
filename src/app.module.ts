@@ -12,9 +12,9 @@ import { AppService } from './app.service';
 
 import databaseConfig from './config/database.config';
 import { EmployeesModule } from './modules/employees/employees.module';
-import { ProjectsModule } from './modules/project/projects.module';
-import { ProjectMemberModule } from './modules/project_member/project_member.module';
-import { ProjectTechnologyModule } from './modules/project_technologies/project_technology.module';
+import { ProjectsModule } from './modules/projects/project/projects.module';
+import { ProjectMemberModule } from './modules/projects/project_member/project_member.module';
+import { ProjectTechnologyModule } from './modules/projects/project_technologies/project_technology.module';
 
 @Module({
   imports: [

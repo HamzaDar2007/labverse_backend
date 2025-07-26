@@ -10,8 +10,8 @@ import {
 } from '@nestjs/common';
 import { ProjectMemberService } from './project_member.service';
 import { AssignMemberDto } from './dto/assign-member.dto';
-import { RolesGuard } from '../../common/guards/roles.guard';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../../../common/guards/roles.guard';
+import { JwtAuthGuard } from '../../auth/guards/jwt-auth.guard';
 
 @UseGuards(JwtAuthGuard, RolesGuard)
 
