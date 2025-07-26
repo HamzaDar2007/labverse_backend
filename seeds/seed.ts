@@ -28,6 +28,7 @@ async function seed() {
   const rolesToSeed = [
     { name: RoleEnum.ADMIN, description: 'Administrator with full access' },
     { name: RoleEnum.USER, description: 'Default user' },
+    { name: RoleEnum.CLIENT, description: 'Client user' },
   ];
 
   for (const roleData of rolesToSeed) {
