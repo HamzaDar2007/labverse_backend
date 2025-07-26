@@ -1,8 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ProjectUpdatesController } from '../project_updates.controller';
 import { ProjectUpdatesService } from '../project_updates.service';
-import { CreateProjectUpdateDto } from '../dto/create-project-update.dto';
-import { UpdateProjectUpdateDto } from '../dto/update-project-update.dto';
+import { NotFoundException } from '@nestjs/common';
 
 describe('ProjectUpdatesController', () => {
   let controller: ProjectUpdatesController;
@@ -10,10 +9,10 @@ describe('ProjectUpdatesController', () => {
 
   const mockUpdate = {
     id: 'u1',
-    title: 'Update 1',
-    details: 'Details here',
+    title: 'Initial Progress',
+    description: 'Kickoff complete',
     update_date: new Date(),
-    project: { id: 'p1' },
+    milestone: { id: 'm1' },
   };
 
   const mockService = {
@@ -21,14 +20,16 @@ describe('ProjectUpdatesController', () => {
     findAll: jest.fn().mockResolvedValue([mockUpdate]),
     findOne: jest.fn().mockResolvedValue(mockUpdate),
     update: jest.fn().mockResolvedValue(mockUpdate),
-    remove: jest.fn().mockResolvedValue({ affected: 1 }),
+    remove: jest.fn().mockResolvedValue({ message: 'Deleted successfully' }),
     findByProject: jest.fn().mockResolvedValue([mockUpdate]),
   };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ProjectUpdatesController],
-      providers: [{ provide: ProjectUpdatesService, useValue: mockService }],
+      providers: [
+        { provide: ProjectUpdatesService, useValue: mockService },
+      ],
     }).compile();
 
     controller = module.get<ProjectUpdatesController>(ProjectUpdatesController);
@@ -36,43 +37,45 @@ describe('ProjectUpdatesController', () => {
   });
 
   it('should create an update', async () => {
-    const dto: CreateProjectUpdateDto = {
-      title: 'Update 1',
-      details: 'Details',
-      project_id: 'p1',
-    };
-    const result = await controller.create(dto);
+    const dto = { title: 'Progress', description: 'Done', milestone_id: 'm1' };
+    const result = await controller.create(dto as any);
     expect(result).toEqual(mockUpdate);
     expect(service.create).toHaveBeenCalledWith(dto);
   });
 
-  it('should return all updates', async () => {
+  it('should get all updates', async () => {
     const result = await controller.findAll();
     expect(result).toEqual([mockUpdate]);
+    expect(service.findAll).toHaveBeenCalled();
   });
 
-  it('should return update by id', async () => {
+  it('should get one update', async () => {
     const result = await controller.findOne('u1');
     expect(result).toEqual(mockUpdate);
     expect(service.findOne).toHaveBeenCalledWith('u1');
   });
 
-  it('should update update', async () => {
-    const dto: UpdateProjectUpdateDto = { title: 'Changed' };
-    const result = await controller.update('u1', dto);
+  it('should update an update', async () => {
+    const dto = { title: 'Updated' };
+    const result = await controller.update('u1', dto as any);
     expect(result).toEqual(mockUpdate);
     expect(service.update).toHaveBeenCalledWith('u1', dto);
   });
 
-  it('should delete update', async () => {
+  it('should delete an update', async () => {
     const result = await controller.remove('u1');
-    expect(result).toEqual({ affected: 1 });
+    expect(result).toEqual({ message: 'Deleted successfully' });
     expect(service.remove).toHaveBeenCalledWith('u1');
   });
 
-  it('should return updates by project id', async () => {
+  it('should get updates by project ID', async () => {
     const result = await controller.findByProject('p1');
     expect(result).toEqual([mockUpdate]);
     expect(service.findByProject).toHaveBeenCalledWith('p1');
+  });
+
+  it('should throw NotFound if update not found', async () => {
+    jest.spyOn(service, 'findOne').mockResolvedValueOnce(null);
+    await expect(controller.findOne('invalid')).rejects.toThrow(NotFoundException);
   });
 });
