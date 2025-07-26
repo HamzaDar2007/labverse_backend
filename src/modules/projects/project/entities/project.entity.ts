@@ -4,6 +4,8 @@ import {
 } from 'typeorm';
 import { ProjectMember } from './../../project_member/entities/project_member.entity';
 import { ProjectTechnology } from '../../../technologies/entities/project_technology.entity';
+import { ProjectUpdate } from '../../project_updates/entities/project-update.entity';
+import { ProjectMilestone } from '../../project_milestones/entities/project-milestone.entity';
 
 @Entity('projects')
 export class Project {
@@ -27,7 +29,13 @@ export class Project {
 
   @OneToMany(() => ProjectMember, (pm) => pm.project)
   members: ProjectMember[];
-
+  
+  // @OneToMany(() => ProjectUpdate, (update) => update.project, { cascade: true })
+  // updates: ProjectUpdate[];
+  
+  @OneToMany(() => ProjectMilestone, (milestone) => milestone.project, { cascade: true })
+  milestones: ProjectMilestone[];
+  
   @OneToMany(() => ProjectTechnology, (pt) => pt.project)
   technologies: ProjectTechnology[];
 

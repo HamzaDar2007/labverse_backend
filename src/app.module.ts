@@ -15,6 +15,8 @@ import { EmployeesModule } from './modules/employees/employees.module';
 import { ProjectsModule } from './modules/projects/project/projects.module';
 import { ProjectMemberModule } from './modules/projects/project_member/project_member.module';
 import { ProjectTechnologyModule } from './modules/projects/project_technologies/project_technology.module';
+import { ProjectMilestonesModule } from './modules/projects/project_milestones/project_milestones.module';
+import { ProjectUpdatesModule } from './modules/projects/project_updates/project_updates.module';
 
 @Module({
   imports: [
@@ -33,6 +35,8 @@ import { ProjectTechnologyModule } from './modules/projects/project_technologies
     ProjectsModule,
     ProjectMemberModule,
     ProjectTechnologyModule,
+    ProjectMilestonesModule,
+    ProjectUpdatesModule
   ],
   controllers: [AppController],
   providers: [AppService],

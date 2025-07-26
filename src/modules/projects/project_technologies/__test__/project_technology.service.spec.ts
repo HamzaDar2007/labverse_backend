@@ -50,6 +50,8 @@ describe('ProjectTechnologyService', () => {
       endDate: '2025-12-31',
       members: [],
       technologies: [],
+      updates: [],       // ✅ added
+      milestones: [],    // ✅ added
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -105,6 +107,8 @@ describe('ProjectTechnologyService', () => {
       endDate: '2025-12-31',
       members: [],
       technologies: [],
+      updates: [],       // ✅ added
+      milestones: [],    // ✅ added
       createdAt: new Date(),
       updatedAt: new Date(),
     };

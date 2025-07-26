@@ -13,6 +13,7 @@ export class CreateProjectUpdatesTable1710000000000 implements MigrationInterfac
             isGenerated: true,
             generationStrategy: 'uuid',
           },
+          
           {
             name: 'milestone_id',
             type: 'uuid',
@@ -24,6 +25,11 @@ export class CreateProjectUpdatesTable1710000000000 implements MigrationInterfac
           {
             name: 'content',
             type: 'text',
+          },
+          {
+            name: 'update_date',
+            type: 'timestamp',
+            isNullable: true,
           },
           {
             name: 'created_at',

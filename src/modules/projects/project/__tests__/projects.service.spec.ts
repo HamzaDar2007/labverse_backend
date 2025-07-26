@@ -56,6 +56,8 @@ describe('ProjectsService', () => {
       endDate: null,
       members: [],
       technologies: [],
+      updates: [],
+      milestones: [],
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -77,13 +79,14 @@ describe('ProjectsService', () => {
         endDate: null,
         members: [],
         technologies: [],
+        updates: [],
+        milestones: [],
         createdAt: new Date(),
         updatedAt: new Date(),
       },
     ];
 
     projectRepo.find.mockResolvedValue(result);
-
     expect(await service.findAll()).toEqual(result);
   });
 
@@ -102,6 +105,8 @@ describe('ProjectsService', () => {
       endDate: null,
       members: [],
       technologies: [],
+      updates: [],
+      milestones: [],
       createdAt: new Date(),
       updatedAt: new Date(),
     };
@@ -136,22 +141,23 @@ describe('ProjectsService', () => {
       endDate: null,
       members: [],
       technologies: [],
+      updates: [],
+      milestones: [],
       createdAt: new Date(),
       updatedAt: new Date(),
     };
 
     const employee: EmployeeProfile = {
-  id: '2',
-  email: 'john@example.com',
-  position: 'Developer',
-  fullName: 'John Doe',
-  bio: 'Experienced developer',
-  skills: [],
-  user: {} as any, 
-  createdAt: new Date(),
-  updatedAt: new Date(),
-};
-
+      id: '2',
+      email: 'john@example.com',
+      position: 'Developer',
+      fullName: 'John Doe',
+      bio: 'Experienced developer',
+      skills: [],
+      user: {} as any,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
 
     const member: ProjectMember = {
       id: 'm1',
@@ -178,6 +184,8 @@ describe('ProjectsService', () => {
       endDate: null,
       members: [],
       technologies: [],
+      updates: [],
+      milestones: [],
       createdAt: new Date(),
       updatedAt: new Date(),
     };
