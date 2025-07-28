@@ -10,6 +10,11 @@ import {
 import { TimeEntriesService } from './time-entries.service';
 import { CreateTimeEntryDto } from './dto/create-time-entry.dto';
 import { UpdateTimeEntryDto } from './dto/update-time-entry.dto';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from 'src/common/guards/roles.guard'; 
+
+@UseGuards(JwtAuthGuard, RolesGuard)
 
 @Controller('time-entries')
 export class TimeEntriesController {

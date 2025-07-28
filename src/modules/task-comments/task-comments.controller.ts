@@ -2,7 +2,11 @@ import { Controller, Post, Body, Get, Param, Delete, Patch } from '@nestjs/commo
 import { TaskCommentsService } from './task-comments.service';
 import { CreateTaskCommentDto } from './dto/create-task-comment.dto';
 import { UpdateTaskCommentDto } from './dto/update-task-comment.dto';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from 'src/common/guards/roles.guard'; 
 
+@UseGuards(JwtAuthGuard, RolesGuard)
 @Controller('task-comments')
 export class TaskCommentsController {
   constructor(private readonly taskCommentsService: TaskCommentsService) {}
