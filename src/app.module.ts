@@ -17,6 +17,9 @@ import { ProjectMemberModule } from './modules/projects/project_member/project_m
 import { ProjectTechnologyModule } from './modules/projects/project_technologies/project_technology.module';
 import { ProjectMilestonesModule } from './modules/projects/project_milestones/project_milestones.module';
 import { ProjectUpdatesModule } from './modules/projects/project_updates/project_updates.module';
+import { TasksModule } from './modules/tasks/tasks.module';
+import { TaskCommentsModule } from './modules/task-comments/task-comments.module';
+import { TimeEntriesModule } from './modules/time-entries/time-entries.module';
 
 @Module({
   imports: [
@@ -36,7 +39,10 @@ import { ProjectUpdatesModule } from './modules/projects/project_updates/project
     ProjectMemberModule,
     ProjectTechnologyModule,
     ProjectMilestonesModule,
-    ProjectUpdatesModule
+    ProjectUpdatesModule,
+    TasksModule,
+    TaskCommentsModule,
+    TimeEntriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
