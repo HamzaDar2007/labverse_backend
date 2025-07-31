@@ -1,6 +1,9 @@
-import { Controller, Get, Post, Body, Param, Delete, Patch } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Patch, UseGuards } from '@nestjs/common';
 import { DevelopmentPlanFeatureService } from './development-plan-feature.service'; 
 import { CreateDevelopmentPlanFeatureDto } from './dto/create-development-plan-feature.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'; 
+import { RolesGuard } from 'src/common/guards/roles.guard';
+@UseGuards(JwtAuthGuard, RolesGuard)
 
 @Controller('development-plan-features')
 export class DevelopmentPlanFeatureController {

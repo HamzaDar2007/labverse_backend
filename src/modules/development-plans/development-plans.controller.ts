@@ -1,8 +1,11 @@
-import { Controller, Post, Get, Patch, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Post, Get, Patch, Delete, Param, Body, UseGuards } from '@nestjs/common';
 import { DevelopmentPlansService } from './development-plans.service'; 
 import { CreateDevelopmentPlanDto } from './dto/create-development-plan.dto'; 
 import { UpdateDevelopmentPlanDto } from './dto/update-development-plan.dto'; 
 import { UpdateDevelopmentPlanRelationsDto } from './dto/update-development-plan-relations.dto'; 
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'; 
+import { RolesGuard } from 'src/common/guards/roles.guard'; 
+@UseGuards(JwtAuthGuard, RolesGuard)
 
 @Controller('development-plans')
 export class DevelopmentPlansController {

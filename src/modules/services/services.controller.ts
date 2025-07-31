@@ -1,7 +1,10 @@
-import { Controller, Post, Get, Patch, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Post, Get, Patch, Delete, Param, Body, UseGuards } from '@nestjs/common';
 import { ServicesService } from '../services/services.service';
 import { CreateServiceDto } from './dto/create-service.dto'; 
 import { UpdateServiceDto } from './dto/update-service.dto'; 
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'; 
+import { RolesGuard } from 'src/common/guards/roles.guard'; 
+@UseGuards(JwtAuthGuard, RolesGuard)
 
 @Controller('services')
 export class ServicesController {

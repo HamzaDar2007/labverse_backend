@@ -1,8 +1,11 @@
-import { Controller, Post, Get, Body, Param, Patch, Delete } from '@nestjs/common';
+import { Controller, Post, Get, Body, Param, Patch, Delete, UseGuards } from '@nestjs/common';
 import { QuotationsService } from './quotations.service'; 
 import { CreateQuotationDto } from './dto/create-quotation.dto'; 
 import { UpdateQuotationStatusDto } from './dto/update-quotation-status.dto'; 
 import { UpdateQuotationDto } from './dto/update-quotation.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'; 
+import { RolesGuard } from 'src/common/guards/roles.guard';
+@UseGuards(JwtAuthGuard, RolesGuard)
 
 @Controller('quotations')
 export class QuotationsController {
