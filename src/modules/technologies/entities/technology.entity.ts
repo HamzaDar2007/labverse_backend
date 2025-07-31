@@ -3,7 +3,7 @@ import {
   CreateDateColumn, UpdateDateColumn, OneToMany
 } from 'typeorm';
 import { ProjectTechnology } from './project_technology.entity';
-
+import { DevelopmentPlanTechnology } from '../../development-plans/entities/development-plan-technology.entity';
 @Entity('technologies')
 export class Technology {
   @PrimaryGeneratedColumn('uuid')
@@ -23,4 +23,7 @@ export class Technology {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+ @OneToMany(() => DevelopmentPlanTechnology, (dpt) => dpt.technology)
+  developmentPlanTechnologies: DevelopmentPlanTechnology[];
 }

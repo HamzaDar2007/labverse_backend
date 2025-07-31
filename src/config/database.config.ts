@@ -1,48 +1,3 @@
-// import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-// import * as dotenv from 'dotenv';
-// import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
-
-// dotenv.config();
-
-// const databaseConfig = (): TypeOrmModuleOptions => ({
-//   type: 'postgres',
-//   host: process.env.DB_HOST || 'localhost',
-//   port: parseInt(process.env.DB_PORT || '5432', 10),
-//   username: process.env.DB_USERNAME || 'postgres',
-//   password: process.env.DB_PASSWORD || '',
-//   database: process.env.DB_DATABASE || 'postgres',
-
-//   // This matches all .entity.ts/.js files inside all modules/entities folders
-//   entities: [__dirname + '/../modules/**/entities/*.entity.{ts,js}'],
-
-//   // This matches migration files in root/migrations folder
-//   migrations: [__dirname + '/../../migrations/*.{ts,js}'],
-
-//   // Always use migrations in production!
-//   synchronize: false,
-
-//   logging: process.env.TYPEORM_LOGGING === 'true',
-
-//   // Use snake_case everywhere in DB
-//   namingStrategy: new SnakeNamingStrategy(),
-
-//   // SSL config (uncomment for production if needed)
-//   // ssl: process.env.DB_SSL === 'true',
-//   // extra: {
-//   //   ssl: process.env.DB_SSL === 'true'
-//   //     ? { rejectUnauthorized: false }
-//   //     : undefined,
-//   // },
-
-//   // Connection pool example (uncomment and tune for prod)
-//   // extra: {
-//   //   max: 10, // max connections
-//   //   min: 2,
-//   // },
-// });
-
-// export default databaseConfig;
-
 
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
@@ -61,9 +16,19 @@ import { ProjectMilestone } from '../modules/projects/project_milestones/entitie
 import { ProjectUpdate } from '../modules/projects/project_updates/entities/project-update.entity';
 import { Task } from '../modules/tasks/entities/task.entity';
 import { TaskComment } from '../modules/task-comments/entities/task-comment.entity';
-
-
+import { DevelopmentPlanTechnology } from '../modules/development-plans/entities/development-plan-technology.entity';
+import { DevelopmentPlan } from '../modules/development-plans/entities/development-plan.entity';
+import { DevelopmentPlanFeature } from 'src/modules/development-plans/entities/development-plan-feature.entity'; 
+import { DevelopmentPlanService } from '../modules/development-plans/entities/development-plan-service.entity';
+import { PlanFeature } from '../modules/development-plans/entities/plan-feature.entity';
+import { Service } from '../modules/services/entities/service.entity';
+import { Invoice } from '../modules/invoices/entities/invoice.entity';
+import { InvoiceItem } from '../modules/invoices/entities/invoice_item.entity';
+import { Payment } from '../modules/payments/entities/payment.entity'; 
+import { Client } from '../modules/clients/entities/client.entity';
 import { TimeEntry } from '../modules/time-entries/entities/time_entry.entity';
+import { ClientPlanQuotation } from '../modules/quotations/entities/client_plan_quotation.entity';
+import { QuotationsModule } from '../modules/quotations/quotations.module';
 
 dotenv.config();
 
@@ -90,6 +55,18 @@ const databaseConfig = (): TypeOrmModuleOptions => ({
     Task,
     TaskComment,
     TimeEntry,
+    DevelopmentPlanTechnology,
+    DevelopmentPlan,
+    DevelopmentPlanFeature,
+    DevelopmentPlanService, 
+    PlanFeature,
+    Service,
+    Invoice,  
+    InvoiceItem,
+    Payment,
+    Client,
+    ClientPlanQuotation,
+    QuotationsModule
   ],
 
   // Migrations path
