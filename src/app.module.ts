@@ -31,6 +31,13 @@ import { DevelopmentPlanServiceModule } from './modules/development-plans/develo
 import { DevelopmentPlanTechnologyModule } from './modules/development-plans/development-plan-technology.module';
 import { PlanFeatureModule } from './modules/development-plans/plan-feature.module'; 
 import { InvoiceItemsModule } from './modules/invoice_items/invoice-items.module'; 
+import { TicketsModule } from './modules/support/tickets/tickets.module';
+import { TicketRepliesModule } from './modules/support/replies/replies.module';
+import { MessagesModule } from './modules/messaging/messages/messages.module';
+import { ConversationsModule } from './modules/messaging/conversations/conversations.module';
+import { ParticipantsModule } from './modules/messaging/participants/participants.module';
+import { ConversationParticipant } from './modules/messaging/conversation-participants/entities/conversation-participant.entity';
+import { ConversationParticipantsModule } from './modules/messaging/conversation-participants/conversation-participants.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -67,7 +74,13 @@ import { InvoiceItemsModule } from './modules/invoice_items/invoice-items.module
     DevelopmentPlanServiceModule,
     DevelopmentPlanTechnologyModule,
     ClientsModule,
-    InvoiceItemsModule
+    InvoiceItemsModule,
+    TicketsModule,
+    TicketRepliesModule,
+    MessagesModule,
+   ParticipantsModule,
+   ConversationParticipantsModule,
+   ConversationsModule
   ],
   controllers: [AppController],
   providers: [AppService],
