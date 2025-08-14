@@ -30,14 +30,21 @@ import { DevelopmentPlanFeatureModule } from './modules/development-plans/develo
 import { DevelopmentPlanServiceModule } from './modules/development-plans/development-plan-service.module';
 import { DevelopmentPlanTechnologyModule } from './modules/development-plans/development-plan-technology.module';
 import { PlanFeatureModule } from './modules/development-plans/plan-feature.module'; 
-import { InvoiceItemsModule } from './modules/invoice_items/invoice-items.module'; 
-import { TicketsModule } from './modules/support/tickets/tickets.module';
-import { TicketRepliesModule } from './modules/support/replies/replies.module';
-import { MessagesModule } from './modules/messaging/messages/messages.module';
-import { ConversationsModule } from './modules/messaging/conversations/conversations.module';
-import { ParticipantsModule } from './modules/messaging/participants/participants.module';
-import { ConversationParticipant } from './modules/messaging/conversation-participants/entities/conversation-participant.entity';
-import { ConversationParticipantsModule } from './modules/messaging/conversation-participants/conversation-participants.module';
+import { InvoiceItemsModule } from './modules/invoice_items/invoice-items.module';
+import { MessagingModule } from './modules/messaging/messaging.module';
+import { SupportTicketsModule } from './modules/support-tickets/support-tickets.module';
+import { ClientApprovalsModule } from './modules/crm/client-approvals/client-approvals.module';
+import { ClientInteractionsModule } from './modules/crm/client-interactions/client-interactions.module';
+import { ClientNotesModule } from './modules/crm/client-notes/client-notes.module';
+import { ContactInquiriesModule } from './modules/crm/contact-inquiries/contact-inquiries.module';
+import { LeadsModule } from './modules/crm/leads/leads.module';
+import { AnswersModule } from './modules/content/answers/answers.module';
+import { BlogCommentsModule } from './modules/content/blog-comments/blog-comments.module';
+import { BlogPostsModule } from './modules/content/blog-posts/blog-posts.module';
+import { CaseStudiesModule } from './modules/content/case-studies/case-studies.module';
+import { CategoriesModule } from './modules/content/categories/categories.module';
+import { QuestionsModule } from './modules/content/questions/questions.module';
+import { TestimonialsModule } from './modules/content/testimonials/testimonials.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -75,12 +82,20 @@ import { ConversationParticipantsModule } from './modules/messaging/conversation
     DevelopmentPlanTechnologyModule,
     ClientsModule,
     InvoiceItemsModule,
-    TicketsModule,
-    TicketRepliesModule,
-    MessagesModule,
-   ParticipantsModule,
-   ConversationParticipantsModule,
-   ConversationsModule
+    MessagingModule,
+    SupportTicketsModule,
+    ClientApprovalsModule,
+    ClientInteractionsModule,
+    ClientNotesModule,
+    ContactInquiriesModule,
+    LeadsModule,
+    AnswersModule,
+    BlogCommentsModule,
+    BlogPostsModule,
+    CaseStudiesModule,
+    CategoriesModule,
+    QuestionsModule,
+    TestimonialsModule
   ],
   controllers: [AppController],
   providers: [AppService],
